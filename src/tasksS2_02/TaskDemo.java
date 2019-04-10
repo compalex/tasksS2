@@ -1,4 +1,4 @@
-package tasksS2_02;
+
 
 /**
  * The program assembles 3 ProductPart objects into Product object

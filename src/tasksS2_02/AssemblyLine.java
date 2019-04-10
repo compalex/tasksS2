@@ -1,21 +1,20 @@
-package tasksS2_02;
+
 
 public class AssemblyLine implements IAssemblyLine{
-    private IProductPart firstPart;
-    private IProductPart secondPart;
-    private IProductPart thirdPart;
+    private ILineStep firstStep;
+    private ILineStep secondStep;
+    private ILineStep thirdStep;
 
     AssemblyLine() {
-        ILineStep lineStep = new LineStep();
-        firstPart = lineStep.buildProductPart();        
-        secondPart = lineStep.buildProductPart();
-        thirdPart = lineStep.buildProductPart();
+        firstStep = new LineStep();
+        secondStep = new LineStep();
+        thirdStep = new LineStep();
     }
     
     public IProduct assembleProduct(IProduct product) {        
-        product.installFirstPart(firstPart);
-        product.installSecondPart(secondPart);
-        product.installThirdPart(thirdPart);
+        product.installFirstPart(firstStep.buildProductPart());
+        product.installSecondPart(secondStep.buildProductPart());
+        product.installThirdPart(thirdStep.buildProductPart());
         return product;
     }
 }

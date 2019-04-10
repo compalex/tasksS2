@@ -1,4 +1,4 @@
-package tasksS2_02;
+
 
 public interface IProduct {
     void installFirstPart(IProductPart firstPart);

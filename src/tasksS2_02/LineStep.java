@@ -1,4 +1,4 @@
-package tasksS2_02;
+
 
 public class LineStep implements ILineStep{
     
