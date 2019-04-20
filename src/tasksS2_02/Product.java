@@ -1,19 +1,15 @@
+package tasksS2_02;
 
+import java.util.List;
 
 public class Product implements IProduct {
-    private IProductPart firstPart;
-    private IProductPart secondPart;
-    private IProductPart thirdPart;
+    List<IProductPart> parts;
 
-    public void installFirstPart(IProductPart firstPart) {
-        this.firstPart = firstPart;
+    public void installParts(List<IProductPart> parts) {
+        this.parts = parts;
     }
 
-    public void installSecondPart(IProductPart secondPart) {
-        this.secondPart = secondPart;
-    }
-
-    public void installThirdPart(IProductPart thirdPart) {
-        this.thirdPart = thirdPart;
+    public void printStatus() {
+        System.out.println(Vocabulary.PRODUCT_STATUS_MSG + parts);
     }
 }
