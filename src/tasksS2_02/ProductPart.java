@@ -3,7 +3,7 @@ package tasksS2_02;
 public class ProductPart implements IProductPart {
     private final String partName;
     
-    ProductPart(String stepName) {
+    public ProductPart(String stepName) {
         partName = stepName;
     }
     

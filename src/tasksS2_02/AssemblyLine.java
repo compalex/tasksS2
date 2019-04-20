@@ -23,10 +23,10 @@ public class AssemblyLine implements IAssemblyLine {
     }
     
     private List<IProductPart> buildParts() {
-        List<IProductPart> parts = new ArrayList<IProductPart>();
+        List<IProductPart> parts = new ArrayList<IProductPart>();        
         
-        for(int i = 0; i < steps.size(); i++) {
-            parts.add(steps.get(i).buildProductPart());
+        for(ILineStep s : steps) {
+            parts.add(s.buildProductPart());
         }
         return parts;
     }
