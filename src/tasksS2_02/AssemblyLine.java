@@ -1,17 +1,14 @@
 package tasksS2_02;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class AssemblyLine implements IAssemblyLine {
     private List<ILineStep> steps; 
 
     public AssemblyLine(ILineStep... steps) {
-        this.steps = new ArrayList<ILineStep>();
-        
-        for (ILineStep s : steps) {
-            this.steps.add(s);
-        }
+        this.steps = new ArrayList<ILineStep>(Arrays.asList(steps));
         System.out.println(Constants.ASSEMBLY_LINE_CONSTRUCTOR_MSG + this.steps);        
     }
 
@@ -25,8 +22,8 @@ public class AssemblyLine implements IAssemblyLine {
     private List<IProductPart> buildParts() {
         List<IProductPart> parts = new ArrayList<IProductPart>();        
         
-        for(ILineStep s : steps) {
-            parts.add(s.buildProductPart());
+        for(ILineStep step : steps) {
+            parts.add(step.buildProductPart());
         }
         return parts;
     }
