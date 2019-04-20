@@ -4,22 +4,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AssemblyLine implements IAssemblyLine {
-    List<ILineStep> steps = new ArrayList<ILineStep>();
-    List<IProductPart> parts = new ArrayList<IProductPart>();
+    private List<ILineStep> steps; 
 
-    AssemblyLine(ILineStep... step) {
+    public AssemblyLine(ILineStep... step) {
+        steps = new ArrayList<ILineStep>();
+        
         for (ILineStep s : step) {
             steps.add(s);
         }
-        System.out.println(Vocabulary.ASSEMBLY_LINE_CONSTRUCTOR_MSG + steps);        
+        System.out.println(Constants.ASSEMBLY_LINE_CONSTRUCTOR_MSG + steps);        
     }
 
-    public IProduct assembleProduct(IProduct product) {
+    @Override
+    public IProduct assembleProduct(IProduct product) {        
+        product.installParts(buildParts());
+        System.out.println(Constants.ASSEMBLE_PRODUCT_MSG);
+        return product;
+    }
+    
+    private List<IProductPart> buildParts() {
+        List<IProductPart> parts = new ArrayList<IProductPart>();
+        
         for(int i = 0; i < steps.size(); i++) {
             parts.add(steps.get(i).buildProductPart());
         }
-        product.installParts(parts);
-        System.out.println(Vocabulary.ASSEMBLE_PRODUCT_MSG);
-        return product;
+        return parts;
     }
 }

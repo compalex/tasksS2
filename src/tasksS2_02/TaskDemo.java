@@ -9,12 +9,11 @@ package tasksS2_02;
 public class TaskDemo {
 
     public static void main(String args[]) {
-        IAssemblyLine tankFactory = new AssemblyLine(new LineStep(Vocabulary.TRACKS_NAME),
-                new LineStep(Vocabulary.ENGINE_NAME), new LineStep(Vocabulary.TURRET_NAME));
+        IAssemblyLine tankFactory = new AssemblyLine(new LineStep(Constants.TRACKS_NAME),
+                new LineStep(Constants.ENGINE_NAME), new LineStep(Constants.TURRET_NAME));
         IProduct tank = new Product();
         tank.printStatus();
         tank = tankFactory.assembleProduct(tank);
         tank.printStatus();
     }
-
 }
