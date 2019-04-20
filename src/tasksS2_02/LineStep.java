@@ -7,12 +7,12 @@ public class LineStep implements ILineStep{
         this.stepName = stepName;
     }
     
+    public IProductPart buildProductPart() {     
+        return new ProductPart(stepName);
+    }  
+    
     @Override
     public String toString() {
         return stepName;
     }
-    
-    public IProductPart buildProductPart() {     
-        return new ProductPart(stepName);
-    }       
 }

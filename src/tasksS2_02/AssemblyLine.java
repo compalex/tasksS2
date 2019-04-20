@@ -6,13 +6,13 @@ import java.util.List;
 public class AssemblyLine implements IAssemblyLine {
     private List<ILineStep> steps; 
 
-    public AssemblyLine(ILineStep... step) {
-        steps = new ArrayList<ILineStep>();
+    public AssemblyLine(ILineStep... steps) {
+        this.steps = new ArrayList<ILineStep>();
         
-        for (ILineStep s : step) {
-            steps.add(s);
+        for (ILineStep s : steps) {
+            this.steps.add(s);
         }
-        System.out.println(Constants.ASSEMBLY_LINE_CONSTRUCTOR_MSG + steps);        
+        System.out.println(Constants.ASSEMBLY_LINE_CONSTRUCTOR_MSG + this.steps);        
     }
 
     @Override
